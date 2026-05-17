@@ -1,0 +1,8 @@
+{
+  "name": "Uptown CRM",
+  "description": "A professional Real Estate Lead Management System with analytics, lead tracking, and status management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
