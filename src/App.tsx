@@ -164,11 +164,15 @@ export default function App() {
         onLogout={handleLogout}
       />
       
-      <main className="flex-1 p-8 lg:p-12 overflow-y-auto">
-        {activeTab === "dashboard" && <Dashboard leads={leads} />}
+      <main className="flex-1 overflow-hidden h-screen bg-[#fafaf9] dark:bg-[#0c0c0c] flex flex-col">
+        {activeTab === "dashboard" && (
+          <div className="flex-1 overflow-y-auto p-8 lg:p-12">
+            <Dashboard leads={leads} />
+          </div>
+        )}
         {activeTab === "leads" && (
-          <div className="h-full flex flex-col space-y-6">
-            <div className="flex items-center justify-between">
+          <div className="flex-1 overflow-hidden flex flex-col p-8 lg:p-12">
+            <div className="flex items-center justify-between mb-8">
               <div>
                 <h2 className="text-4xl font-serif font-bold text-[#1a1a1a] dark:text-[#f5f2ed] tracking-tight transition-colors">Active Pipeline</h2>
                 <p className="text-sm text-[#1a1a1a]/60 dark:text-[#f5f2ed]/60 font-medium tracking-wide">Manage and track your high-intent potential clients</p>
@@ -180,10 +184,16 @@ export default function App() {
                 Register New Lead
               </button>
             </div>
-            <LeadTable leads={leads} onSelectLead={setSelectedLead} />
+            <div className="flex-1 overflow-hidden">
+              <LeadTable leads={leads} onSelectLead={setSelectedLead} />
+            </div>
           </div>
         )}
-        {activeTab === "settings" && <Settings />}
+        {activeTab === "settings" && (
+          <div className="flex-1 overflow-y-auto p-8 lg:p-12">
+            <Settings />
+          </div>
+        )}
       </main>
 
       {showAddForm && (

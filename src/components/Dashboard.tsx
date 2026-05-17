@@ -59,36 +59,36 @@ export default function Dashboard({ leads }: DashboardProps) {
   };
 
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-4xl font-serif font-bold text-[#1a1a1a] dark:text-[#f5f2ed] tracking-tight transition-colors">Market Overview</h2>
-          <p className="text-sm text-[#1a1a1a]/60 dark:text-[#f5f2ed]/60 font-medium tracking-wide">Performance analytics for Uptown CRM</p>
+          <h2 className="text-3xl font-serif font-bold text-[#1a1a1a] dark:text-[#f5f2ed] tracking-tight transition-colors">Market Overview</h2>
+          <p className="text-xs text-[#1a1a1a]/60 dark:text-[#f5f2ed]/60 font-medium tracking-wide">Performance analytics for Uptown CRM</p>
         </div>
         <div className="flex gap-4">
           <button 
             onClick={() => setShowFilters(!showFilters)}
             className={cn(
-              "flex items-center gap-2 px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-[0.2em] shadow-xl hover:scale-105 active:scale-95 transition-all",
+              "flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg hover:scale-105 active:scale-95 transition-all outline-none",
               showFilters 
                 ? "bg-[#d4af37] text-white" 
                 : "bg-[#1a1a1a] dark:bg-[#f5f2ed] text-white dark:text-[#1a1a1a]"
             )}
           >
-            {showFilters ? <X className="w-4 h-4" /> : <Filter className="w-4 h-4" />}
+            {showFilters ? <X className="w-3 h-3" /> : <Filter className="w-3 h-3" />}
             {showFilters ? "Close Filters" : "Filter Analytics"}
           </button>
         </div>
       </div>
 
       {showFilters && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 bg-white dark:bg-[#161616] rounded-3xl border border-[#d4af37]/20 border-dashed animate-in zoom-in-95 duration-300">
-          <div className="space-y-2">
-            <label className="text-[10px] uppercase font-bold text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 tracking-widest">Time Period</label>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-white dark:bg-[#161616] rounded-2xl border border-[#d4af37]/20 border-dashed animate-in zoom-in-95 duration-300">
+          <div className="space-y-1">
+            <label className="text-[8px] uppercase font-bold text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 tracking-widest leading-none">Time Period</label>
             <select 
               value={dateRange}
               onChange={(e) => setDateRange(e.target.value)}
-              className="w-full px-4 py-3 bg-[#1a1a1a]/5 dark:bg-[#262626] border-none rounded-xl text-xs font-bold text-[#1a1a1a] dark:text-[#f5f2ed] outline-none transition-colors"
+              className="w-full px-3 py-2 bg-[#1a1a1a]/5 dark:bg-[#262626] border-none rounded-lg text-[10px] font-bold text-[#1a1a1a] dark:text-[#f5f2ed] outline-none transition-colors"
             >
               <option value="7" className="dark:bg-[#161616]">Last 7 Days</option>
               <option value="30" className="dark:bg-[#161616]">Last 30 Days</option>
@@ -96,23 +96,23 @@ export default function Dashboard({ leads }: DashboardProps) {
               <option value="365" className="dark:bg-[#161616]">Last Year</option>
             </select>
           </div>
-          <div className="space-y-2">
-            <label className="text-[10px] uppercase font-bold text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 tracking-widest">Lead Status</label>
+          <div className="space-y-1">
+            <label className="text-[8px] uppercase font-bold text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 tracking-widest leading-none">Status</label>
             <select 
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full px-4 py-3 bg-[#1a1a1a]/5 dark:bg-[#262626] border-none rounded-xl text-xs font-bold text-[#1a1a1a] dark:text-[#f5f2ed] outline-none transition-colors"
+              className="w-full px-3 py-2 bg-[#1a1a1a]/5 dark:bg-[#262626] border-none rounded-lg text-[10px] font-bold text-[#1a1a1a] dark:text-[#f5f2ed] outline-none transition-colors"
             >
               <option value="All" className="dark:bg-[#161616]">All Statuses</option>
               {STATUS_OPTIONS.map(s => <option key={s} value={s} className="dark:bg-[#161616]">{s}</option>)}
             </select>
           </div>
-          <div className="space-y-2">
-            <label className="text-[10px] uppercase font-bold text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 tracking-widest">Requirement Type</label>
+          <div className="space-y-1">
+            <label className="text-[8px] uppercase font-bold text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 tracking-widest leading-none">Requirement</label>
             <select 
               value={propertyFilter}
               onChange={(e) => setPropertyFilter(e.target.value)}
-              className="w-full px-4 py-3 bg-[#1a1a1a]/5 dark:bg-[#262626] border-none rounded-xl text-xs font-bold text-[#1a1a1a] dark:text-[#f5f2ed] outline-none transition-colors"
+              className="w-full px-3 py-2 bg-[#1a1a1a]/5 dark:bg-[#262626] border-none rounded-lg text-[10px] font-bold text-[#1a1a1a] dark:text-[#f5f2ed] outline-none transition-colors"
             >
               <option value="All" className="dark:bg-[#161616]">All Types</option>
               {PROPERTY_TYPE_OPTIONS.map(p => <option key={p} value={p} className="dark:bg-[#161616]">{p}</option>)}
@@ -121,18 +121,18 @@ export default function Dashboard({ leads }: DashboardProps) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatsCard label="Total Leads" value={totalLeads} icon={Users} color="blue" trend="+12%" trendPositive={true} />
         <StatsCard label="Conversion Rate" value={`${conversionRate}%`} icon={Target} color="emerald" trend="+2.4%" trendPositive={true} />
         <StatsCard label="Site Visits" value={filteredLeads.filter(l => l.status === "Site Visit").length} icon={TrendingUp} color="purple" trend="-3%" trendPositive={false} />
-        <StatsCard label="Lead Volume" value={totalLeads > 10 ? "High" : "Normal"} icon={PieChart} color="amber" />
+        <StatsCard label="Volume" value={totalLeads > 10 ? "High" : "Normal"} icon={PieChart} color="amber" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white dark:bg-[#1e1e1e] p-8 rounded-[2rem] border border-[#1a1a1a]/5 dark:border-white/5 shadow-sm h-[450px] flex flex-col transition-colors duration-300">
-          <div className="mb-6">
-            <h3 className="text-xl font-serif font-bold text-[#1a1a1a] dark:text-[#f5f2ed]">Lead Status Distribution</h3>
-            <p className="text-xs text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 font-medium uppercase tracking-[0.15em] mt-1">Real-time pipeline health</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-white dark:bg-[#1e1e1e] p-6 rounded-[2rem] border border-[#1a1a1a]/5 dark:border-white/5 shadow-sm h-[320px] xl:h-[380px] flex flex-col transition-colors duration-300">
+          <div className="mb-4">
+            <h3 className="text-lg font-serif font-bold text-[#1a1a1a] dark:text-[#f5f2ed]">Lead Status Distribution</h3>
+            <p className="text-[10px] text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 font-medium uppercase tracking-[0.15em] mt-1">Real-time pipeline health</p>
           </div>
           <div className="flex-1 min-h-0">
             <ResponsiveContainer width="100%" height="100%">
@@ -149,16 +149,16 @@ export default function Dashboard({ leads }: DashboardProps) {
                   }}
                   itemStyle={{ color: isDark ? '#f5f2ed' : '#1a1a1a' }}
                 />
-                <Bar dataKey="value" fill={isDark ? "#f5f2ed" : "#1a1a1a"} radius={[12, 12, 0, 0]} barSize={40} />
+                <Bar dataKey="value" fill={isDark ? "#f5f2ed" : "#1a1a1a"} radius={[8, 8, 0, 0]} barSize={32} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#1e1e1e] p-8 rounded-[2rem] border border-[#1a1a1a]/5 dark:border-white/5 shadow-sm h-[450px] flex flex-col transition-colors duration-300">
-          <div className="mb-6">
-            <h3 className="text-xl font-serif font-bold text-[#1a1a1a] dark:text-[#f5f2ed]">Source Performance</h3>
-            <p className="text-xs text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 font-medium uppercase tracking-[0.15em] mt-1">ROI across channels</p>
+        <div className="bg-white dark:bg-[#1e1e1e] p-6 rounded-[2rem] border border-[#1a1a1a]/5 dark:border-white/5 shadow-sm h-[320px] xl:h-[380px] flex flex-col transition-colors duration-300">
+          <div className="mb-4">
+            <h3 className="text-lg font-serif font-bold text-[#1a1a1a] dark:text-[#f5f2ed]">Source Performance</h3>
+            <p className="text-[10px] text-[#1a1a1a]/40 dark:text-[#f5f2ed]/40 font-medium uppercase tracking-[0.15em] mt-1">ROI across channels</p>
           </div>
           <div className="flex-1 min-h-0">
             <ResponsiveContainer width="100%" height="100%">
@@ -167,8 +167,8 @@ export default function Dashboard({ leads }: DashboardProps) {
                   data={sourceData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={80}
-                  outerRadius={120}
+                  innerRadius={60}
+                  outerRadius={90}
                   paddingAngle={8}
                   dataKey="value"
                 >
@@ -188,7 +188,7 @@ export default function Dashboard({ leads }: DashboardProps) {
                 />
                 <Legend 
                   iconType="circle" 
-                  formatter={(value) => <span style={{ color: isDark ? '#f5f2ed80' : '#1a1a1a80', fontSize: '10px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{value}</span>}
+                  formatter={(value) => <span style={{ color: isDark ? '#f5f2ed80' : '#1a1a1a80', fontSize: '9px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{value}</span>}
                 />
               </RechartsPie>
             </ResponsiveContainer>
